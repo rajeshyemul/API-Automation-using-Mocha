@@ -2,7 +2,7 @@
 require('dotenv').config()
 export class Config {
 
-  public static domainHost () {
+  public static Host () {
     if (process.env.API_GATEWAY) {
       return process.env.API_GATEWAY.trim()
     } else {

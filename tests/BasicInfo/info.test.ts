@@ -1,12 +1,20 @@
 import { expect } from "chai"
-import { API_ENDPOINTS } from "../../src/API/API_EndPoints"
 import { UserDataService } from "../../src/API/services/UserDataService"
 
 describe('Card-holder Overview - Basic info', async () => {
     const userDataService = new UserDataService()
+    // Request body has to send to userOverview method is you have payLoad
+    //    const userData = {
+    //           user: {
+    //               userNumber: '176673676',
+    //               userName: 'ABC',
+    //               UserEmailID: 'abc.pqr@xyz.com'
+    //          }
+    //    }
+    // this object can be passed as patLoad instaed of this to the userOverview method
 
     it('Verify Basic info from auto-suggestions with negative', async () => {
-        const autoSuggestRes = await userDataService.userOverview(API_ENDPOINTS.CUSTOMER_SERVICE.SEARCH_AUTOSUGGESTION)
+        const autoSuggestRes = await userDataService.userOverview(this)
         expect(autoSuggestRes).to.have.status(201)
     })
 })

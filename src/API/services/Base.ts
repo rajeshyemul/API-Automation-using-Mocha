@@ -10,7 +10,7 @@ export class Base {
   }
 
   public async post (endpoint:string, body:any, query:any = {}) {
-    const response = await chai.request(Config.domainHost())
+    const response = await chai.request(Config.Host())
       .post(endpoint)
       .set(HEADER_CONST.key.AUTHORIZATION, await this.getAuthToken())
       .query(query)
@@ -19,7 +19,7 @@ export class Base {
   }
 
   public async put (endpoint:string, body:any, query:any = {}) {
-    const response = await chai.request(Config.domainHost())
+    const response = await chai.request(Config.Host())
       .put(endpoint)
       .set(HEADER_CONST.key.AUTHORIZATION, await this.getAuthToken())
       .query(query)
@@ -28,7 +28,7 @@ export class Base {
   }
 
   public async get (endpoint:string, query:any = {}) {
-    const response = await chai.request(Config.domainHost())
+    const response = await chai.request(Config.Host())
       .get(endpoint)
       .set(HEADER_CONST.key.AUTHORIZATION, await this.getAuthToken())
       .query(query)
